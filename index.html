@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selenium Test Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            color: #333;
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: 200px;
+            margin-right: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <h1>Selenium Test Page</h1>
+    <p>Enter your name and click the button to see a greeting.</p>
+    <input type="text" id="nameInput" placeholder="Enter your name">
+    <button id="greetButton">Greet Me</button>
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('greetButton').addEventListener('click', function() {
+            const name = document.getElementById('nameInput').value;
+            const resultDiv = document.getElementById('result');
+            if (name) {
+                resultDiv.textContent = `Hello, ${name}! Welcome to Selenium testing.`;
+            } else {
+                resultDiv.textContent = 'Please enter your name.';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+# 1. Start from a base image (e.g., Node.js or Python)
+FROM node:24-alpine 
+
+# 2. Set the working directory inside the container
+WORKDIR /app
+
+# 3. Copy dependency files and install them
+COPY package.json .
+RUN npm install --omit=dev
+
+# 4. Copy the rest of your application code
+COPY . .
+
+# 5. Inform Docker which port the app listens on
+EXPOSE 3000
+
+# 6. Define the command to start your application
+CMD ["node", "src/index.js"]
